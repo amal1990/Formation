@@ -1,0 +1,24 @@
+{
+  "formations": [
+    {
+      "title": "Angular",
+      "description": "Angular desc444444",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "title": "PHP",
+      "description": "PHP desc"
+    },
+    {
+      "id": 3,
+      "title": "JAVA",
+      "description": "JAVA desc"
+    },
+    {
+      "title": "ryt",
+      "description": "blablablabrtyyrtryryyrlabla",
+      "id": 4
+    }
+  ]
+}
