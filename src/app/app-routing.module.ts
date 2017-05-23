@@ -9,8 +9,11 @@ const routes: Routes = [
   {
     path: '', component: HomeComponent
   },
-  {  path: 'about', component: AboutComponent},
-  {  path: 'formation', loadChildren: './formation/formation.module#FormationModule'}
+  { path: 'about', component: AboutComponent },
+  { path: 'formation', loadChildren: './formation/formation.module#FormationModule' },
+  {
+    path: '**', redirectTo: ''
+  }
 ];
 
 @NgModule({

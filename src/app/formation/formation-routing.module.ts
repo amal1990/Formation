@@ -7,7 +7,8 @@ import { FormationFormComponent } from './formation-form/formation-form.componen
 const routes: Routes = [
   { path: '', component: FormationListComponent },
   { path: 'details/:id', component: FormationDetailsComponent },
-  { path: 'form/:id', component: FormationFormComponent }
+  { path: 'form/:id', component: FormationFormComponent },
+  { path: 'form', component: FormationFormComponent }
 ];
 
 @NgModule({

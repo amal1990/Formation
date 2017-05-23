@@ -7,13 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { 
+  constructor() {
     /* EC5
     var x='hello';
     var y=x + 'wold'; */
     // EC6
    let x = 'hello';
-   let y = x + 'wold';
+   let y = x + 'world';
   }
 
   ngOnInit() {
