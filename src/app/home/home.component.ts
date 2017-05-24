@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import * as $ from 'jquery';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,11 +12,15 @@ export class HomeComponent implements OnInit {
     var x='hello';
     var y=x + 'wold'; */
     // EC6
-   let x = 'hello';
-   let y = x + 'world';
+    let x = 'hello';
+    let y = x + 'world';
   }
 
   ngOnInit() {
+    $('button').click(function () {
+      $('p').hide();
+    });
   }
+
 
 }

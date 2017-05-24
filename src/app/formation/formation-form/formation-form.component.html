@@ -13,4 +13,21 @@
   <button type="reset" class="btn btn-default">RESET</button>
 </form>
 <br/><br/>
+
+<form [formGroup]="formationFormRx" (ngSubmit)="saveRx()">
+ 
+   <div class="form-group" [ngClass]="{'has-error':!formationFormRx.controls['title'].valid && formationFormRx.controls['title'].touched}">
+     <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" name ='title' placeholder="title" formControlName="title"> 
+   </div>
+  <div class="form-group">
+    <label for="description">Description</label>
+    <input type="text" class="form-control" id="description" name="description" placeholder="Description" formControlName="description">
+  </div>
+   
+   
+  <button type="submit" class="btn btn-default" [disabled]="!formationFormRx.valid">ADD</button>
+  <button type="reset" class="btn btn-default">RESET</button>
+</form>
+
 <pre> {{formationForm.value | json}}</pre>

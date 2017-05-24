@@ -1,7 +1,7 @@
 import { FormationDetailsComponent } from './../formation-details/formation-details.component';
 import { FormationService } from './../../shared/services/formation.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Formation } from 'app/shared/models/formation';
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute } from '@angular/router';
@@ -12,12 +12,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./formation-form.component.css']
 })
 export class FormationFormComponent implements OnInit, OnDestroy {
+
   id: any;
   formations: Formation[];
   formation: Formation;
   sub: Array<Subscription> = [];
+  formationFormRx: FormGroup;
   constructor(private formationService: FormationService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute, private builder: FormBuilder) {
 
     const sub = this.route.params.subscribe(params => {
       this.id = +params['id'];
@@ -32,7 +34,12 @@ export class FormationFormComponent implements OnInit, OnDestroy {
     this.formation = new Formation();
     this.formation.title = 'Hello !!!';
     this.formation.description = 'blablablablabla';
+    this.formationFormRx = this.builder.group({
+      title: new FormControl('', [Validators.required, Validators.pattern('[A-Z]*')]),
+      description: new FormControl('')
+    });
   }
+
   add(form: NgForm) {
     console.log('Added data', form.value);
     const title = form.value.title;
@@ -68,6 +75,9 @@ export class FormationFormComponent implements OnInit, OnDestroy {
       this.formations = data;
     });
     this.sub.push(sub);
+  }
+  saveRx() {
+    console.log(this.formationFormRx);
   }
   ngOnDestroy() {
     if (this.sub) {

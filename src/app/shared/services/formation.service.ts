@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/retry';
 import { Formation } from 'app/shared/models/formation';
 import { environment } from '../../../environments/environment';
 
@@ -19,7 +20,7 @@ export class FormationService {
   }
 
   find(id): Observable<Formation> {
-    return this.http.get(`${environment.apiURL}/formations/${id}`).map((res: Response) => res.json());
+    return this.http.get(`${environment.apiURL}/formations/${id}`).map((res: Response) => res.json()).retry(3);
   }
 
   put(model: Formation): Observable<Formation> {
